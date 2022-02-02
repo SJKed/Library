@@ -1,9 +1,7 @@
 <template>
   <div id="app">
-      <div class="nav">
-        <router-link to="/home">Library</router-link> |
-        <router-link to="/about">About</router-link>
-      </div>
+    <router-link :books="readingList"  to="/reading-list">Readig List</router-link>
+
     <router-view />
   </div>
 </template>
@@ -16,13 +14,6 @@ body {
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
 }
-
-.banner {
-  background-color: red;
-  width: 100%;
-  height: 20vh;
-}
-
 .nav {
   padding: 1rem;
   text-align: center;
