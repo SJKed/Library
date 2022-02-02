@@ -16,7 +16,7 @@
         <p>{{ book.Plot }}</p>
         <div class="bookFacts">
           <div>
-            <p>Audciance: {{ book.Audciance }}</p>
+            <p>Audiance: {{ book.Audiance }}</p>
             <p>Pages: {{ book.Pages }}</p>
           </div>
           <div>
