@@ -1,13 +1,17 @@
 <template>
   <div class="home">
     <h1>8 Classic Childrens book</h1>
+
     <div class="library">
-      <router-link to="/about"
+      <router-link
+        :to="'/book/' + book.id"
         class="book"
-        v-for="book in myJson"
-        v-bind:key="book.Title"
-        v-bind:style="{ backgroundColor: book.BookColor }"
+        v-for="book in library"
+        :key="book.id"
+        :style="{ backgroundColor: book.BookColor }"
         :library="book"
+        @click="logMe()"
+        @addToRead="addToReadHandler"
       >
         <div class="booktext">
           <p class="title">{{ book.Title }}</p>
@@ -25,10 +29,19 @@ export default {
   name: "Home",
   data() {
     return {
-      myJson: library,
+      library: [...library],
+      
     };
   },
   methods: {
+    logMe() {
+      console.log("clicked");
+    },
+    addToReadHandler(book) {
+      console.log(book);
+      this.readingList.push(book)
+      console.log(this.readingList);
+    },
   },
 };
 </script>
@@ -37,13 +50,13 @@ export default {
 .home {
   margin-left: auto;
   margin-right: auto;
-  width: 60vw;;
+  width: 60vw;
 
   h1 {
     text-align: center;
     font-size: 3rem;
     font-weight: bold;
-    color: #2c3e50;
+    color: black;
   }
 }
 .library {
