@@ -24,7 +24,7 @@
             <p>Publisher: {{ book.Publisher }}</p>
           </div>
         </div>
-        <button @click="$emit('addToRead', book)">Oh, I want to read it</button>
+        <button @click="saveBook(book)">Oh, I want to read it</button>
       </div>
     </div>
   </div>
@@ -42,6 +42,17 @@ export default {
     return {
       myJson: library,
     };
+  },
+  methods: {
+    saveBook(book) {
+      let bookId = book.id;
+      let bookIds = JSON.parse(localStorage.getItem("bookIds"));
+      if (bookIds == null) {
+        bookIds = [];
+      }
+      bookIds.push(bookId);
+      localStorage.setItem("bookIds", JSON.stringify(bookIds));
+    },
   },
 };
 </script>

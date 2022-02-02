@@ -5,6 +5,23 @@
   </div>
 </template>
 
+<script> 
+export default {
+  name: "App",
+  data() {
+    return {
+      readingList: [],
+    };
+  },
+  methods: {
+    addToReadHandler(book) {
+      this.readingList.push(book);
+    },
+  },
+};
+
+</script>
+
 <style lang="scss">
 body {
   margin: 0;
