@@ -112,6 +112,9 @@ export default {
     color: white;
     margin-top: 0;
   }
+  .author {
+    margin-top: -2rem;
+  }
 }
 .bookFacts {
   display: flex;
@@ -136,5 +139,6 @@ button {
   width: 170px;
   height: 3rem;
   border-radius: 8px;
+  margin-top: 1rem;
 }
 </style>

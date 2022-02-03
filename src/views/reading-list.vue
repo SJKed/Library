@@ -61,11 +61,17 @@ export default {
   p {
     color: white;
     border-bottom: 1px solid white;
+    justify-content: space-evenly;
   }
 
   ul {
     list-style-type: none;
     padding: 0;
+  }
+
+  li {
+    display: flex;
+    justify-content: space-between;
   }
 }
 </style>
