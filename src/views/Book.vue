@@ -1,8 +1,8 @@
 <template>
   <div class="fader">
     <div class="inspect">
-      <router-link to="/home">
-        <img src="../assets/arrow_back_ios_black_24dp.svg">
+      <router-link to="/">
+        <img src="../assets/arrow_back_ios_black_24dp.svg" />
       </router-link>
       <div class="bookCover" :style="{ backgroundColor: book.BookColor }">
         <div class="booktext">
@@ -31,17 +31,18 @@
 </template>
 
 <script>
-import library from "../assets/library.json";
 export default {
-  computed: {
-    book() {
-      return library.find((library) => library.id == this.$route.params.id);
-    },
-  },
   data() {
     return {
-      myJson: library,
     };
+  },
+  computed: {
+    library() {
+      return this.$store.state.library;
+    },
+    book() {
+      return this.library.find((library) => library.id == this.$route.params.id);
+    },
   },
   methods: {
     saveBook(book) {
@@ -80,6 +81,8 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  border-radius: 10px;
+  border-left: 10px solid white;
 
   .booktext {
     margin-left: 1rem;

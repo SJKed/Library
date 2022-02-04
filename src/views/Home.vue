@@ -23,15 +23,17 @@
 </template>
 
 <script>
-import library from "../assets/library.json";
 
 export default {
   name: "Home",
   data() {
     return {
-      library: [...library],
-      
     };
+  },
+  computed: {
+    library() {
+      return this.$store.state.library
+    },
   },
   methods: {
     logMe() {
@@ -72,6 +74,7 @@ export default {
   height: 300px;
   width: 215px;
   margin: 10px;
+  border-left: 10px solid black;
   justify-content: flex-end;
 }
 .booktext {

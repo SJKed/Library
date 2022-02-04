@@ -4,7 +4,10 @@
       <ul>
         <h1>Reading List</h1>
         <li v-for="book in books" :key="book.id">
-          <p>{{ book.Title }} by {{ book.Author }} <button @click="removeTargetBook(book)">remove</button></p>
+          <p>
+            {{ book.Title }} by {{ book.Author }}
+            <button @click="removeTargetBook(book)">remove</button>
+          </p>
         </li>
       </ul>
     </div>
@@ -12,15 +15,15 @@
 </template>
 
 <script>
-import library from "../assets/library.json";
 export default {
   props: ["readingList"],
   data() {
-    return {
-      library: [...library],
-    };
+    return {};
   },
   computed: {
+    library() {
+      return this.$store.state.library;
+    },
     list() {
       let bookIds = JSON.parse(localStorage.getItem("bookIds"));
       if (bookIds == null) {

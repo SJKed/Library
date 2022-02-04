@@ -7,7 +7,7 @@ import ReadingList from '../views/reading-list.vue'
 Vue.use(VueRouter)
 
 const routes = [{
-    path: '/home',
+    path: '/',
     name: 'Home',
     component: Home
   },
